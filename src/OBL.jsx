@@ -6,7 +6,7 @@ export default function OBL() {
     return (
         <div>
             <div>
-                <svg width="100" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 98"><defs>
+                <svg width="100" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110"><defs>
 
                 </defs>
                     <polygon
@@ -69,7 +69,7 @@ export default function OBL() {
             </div>
             <div>
 
-                <svg width="100" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98 98"><defs>
+                <svg width="100" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110"><defs>
 
                 </defs>
                     <polygon
