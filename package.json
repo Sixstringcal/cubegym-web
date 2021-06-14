@@ -1,5 +1,6 @@
 {
   "name": "cubegym-web",
+  "homepage": "http://cubegym.net",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
