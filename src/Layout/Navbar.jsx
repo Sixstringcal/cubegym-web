@@ -147,9 +147,9 @@ export default function Navbar() {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                <BrowserRouter>
+                <BrowserRouter basename={process.env.PUBLIC_URL}>
                     <div>
-                        <Route exact path="/OBL">
+                        <Route path="/OBL">
                             <OBL/>
                         </Route>
                         <Route path="/PBL">
