@@ -5,7 +5,7 @@ export default function PBL() {
 
     return (
         <div>
-            This is PBL
+            PBL
         </div>
     );
 
