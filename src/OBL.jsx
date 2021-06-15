@@ -1,6 +1,26 @@
-import React from "react";
+import React from 'react';
+
+
+async function getOBLAlgs(uLayer, dLayer) {
+    const res = fetch("http://api.cubegym.net/getOBL", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    const data = await res.json();
+    console.log(data);
+}
 
 export default function OBL() {
+
+    
+
+    var algs = getOBLAlgs('all', 'all');
+
+
+
+    console.log(algs);
 
     return (
         <div>
@@ -15,56 +35,56 @@ export default function OBL() {
                         points="0,35 0,0 35,0 49,49"
                         fill="black"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="2"
                         points="0,63 0,35 49,49"
                         fill="black"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="3"
                         points="0,63 0,98 35,98 49,49"
                         fill="black"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="4"
                         points="35,98 63,98 49,49"
                         fill="black"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="5"
                         points="98,63 98,98 63,98 49,49"
                         fill="black"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="6"
                         points="98,63 98,35 49,49"
                         fill="black"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="7"
                         points="98,35 98,0 63,0 49,49"
                         fill="black"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="8"
                         points="35,0 63,0 49,49"
                         fill="black"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                 </svg>
             </div>
@@ -78,56 +98,56 @@ export default function OBL() {
                         points="0,35 0,0 35,0 49,49"
                         fill="white"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="2"
                         points="0,63 0,35 49,49"
                         fill="white"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="3"
                         points="0,63 0,98 35,98 49,49"
                         fill="white"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="4"
                         points="35,98 63,98 49,49"
                         fill="white"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="5"
                         points="98,63 98,98 63,98 49,49"
                         fill="white"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="6"
                         points="98,63 98,35 49,49"
                         fill="white"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="7"
                         points="98,35 98,0 63,0 49,49"
                         fill="white"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                     <polygon
                         id="8"
                         points="35,0 63,0 49,49"
                         fill="white"
                         stroke="gray"
-                        stroke-width="2"
+                        strokeWidth="2"
                     />
                 </svg>
             </div>
