@@ -4,6 +4,7 @@ import React from 'react';
 async function getOBLAlgs(uLayer, dLayer) {
     const res = fetch("http://api.cubegym.net/getOBL", {
         method: "POST",
+        mode: 'no-cors',
         headers: {
             "Content-Type": "application/json"
         }
