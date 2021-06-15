@@ -1,4 +1,3 @@
-import React from 'react';
 
 
 var topColor = '#000000';
@@ -144,7 +143,7 @@ export default class Sq1 {
         if (scramble.charAt(0) === '/') {
             endsWithSlash = true;
         }
-        if (scramble.charAt(scramble.length() - 1) === '/') {
+        if (scramble.charAt(scramble.length - 1) === '/') {
             reversedScramble = "/";
         }
 
