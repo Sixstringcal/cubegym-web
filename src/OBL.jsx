@@ -5,7 +5,7 @@ var algs;
 var oblState = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 var sq1 = new Sq1();
 function getOBLAlgs(uLayer, dLayer) {
-    fetch("http://localhost:625/OBl/getOBL", {
+    fetch("/OBl/getOBL", {
         method: "POST",
 
     }).then((response) => response.json())
