@@ -146,10 +146,10 @@ export default function Navbar() {
                 <div className={classes.drawerHeader} />
                 <BrowserRouter basename={process.env.PUBLIC_URL}>
                     <div>
-                        <Route path="/OBL">
+                        <Route exact path="/OBL">
                             <OBL/>
                         </Route>
-                        <Route path="/PBL">
+                        <Route exact path="/PBL">
                             <PBL />
                         </Route>
                     </div>

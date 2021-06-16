@@ -98,11 +98,11 @@ export default class Sq1 {
     }
 
     getOBLState() {
-        var lasts;
-        var obl;
+        var lasts = [];
+        var obl = [topColor, topColor, topColor, topColor, topColor, topColor, topColor, topColor, topColor, topColor, topColor, topColor, topColor, topColor, topColor, topColor];
         var todo = 0;
         for (var i = 0; i < 24; i++) {
-            if (!lasts.contains(state[i])) {
+            if (!lasts.includes(state[i])) {
                 if (state[i] < 9) {
                     obl[todo] = topColor;
                 } else {
@@ -110,7 +110,7 @@ export default class Sq1 {
                 }
                 todo++;
             }
-            lasts.add(state[i]);
+            lasts = [lasts, state[i]];
         }
         if (state[11] % 2 === 0) {
             obl[16] = [0, 0, 0];
