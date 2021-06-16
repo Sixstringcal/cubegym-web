@@ -22,7 +22,6 @@
   "scripts": {
     "server": "node server/index.js",
     "start": "react-scripts start",
-    "heroku-postbuild": "node server",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
