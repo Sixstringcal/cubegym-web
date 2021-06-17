@@ -14,8 +14,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { BrowserRouter, Route } from 'react-router-dom';
-import OBL from '../OBL.jsx';
+import OBL from '../OBL';
 import PBL from '../PBL.jsx';
 
 const drawerWidth = 240;
@@ -144,16 +143,7 @@ export default function Navbar() {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                <BrowserRouter basename={process.env.PUBLIC_URL}>
-                    <div>
-                        <Route exact path="/OBL">
-                            <OBL/>
-                        </Route>
-                        <Route exact path="/PBL">
-                            <PBL />
-                        </Route>
-                    </div>
-                </BrowserRouter>
+                
             </main>
         </div>
     );
