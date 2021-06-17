@@ -22,6 +22,10 @@ div {
   text-align: center;
 }
 
+.selectorDiv {
+  orientation: 'horizontal';
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
