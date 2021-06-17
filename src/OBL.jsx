@@ -1,6 +1,5 @@
 import React from 'react';
 import Sq1 from './Models/Sq1';
-import OBLImage from './Models/OBLImage'
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
 
@@ -10,29 +9,28 @@ var oblState = ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000"
 var sq1 = new Sq1();
 var currentScramble = "";
 var reversedScramble = "";
-var oblView = (<OBLImage oblState={oblState} id="obl-image" />);
 
 
 function getOBLAlgs(uLayer, dLayer) {
     fetch("http://api.cubegym.net/getOBL", {
-    //fetch("http://localhost:626/getOBL", {
+        //fetch("http://localhost:626/getOBL", {
 
         method: "POST",
 
     }).then((response) => response.json())
         .then((responseJSON) => {
             algs = responseJSON.algs;
+            var index = Math.floor(Math.random() * algs.length)
             sq1 = new Sq1();
-            currentScramble = algs[2];
-            reversedScramble = sq1.reverseScramble(algs[2]);
-            sq1.doMoves(sq1.reverseScramble(algs[2]));
+            currentScramble = algs[index];
+            reversedScramble = sq1.reverseScramble(algs[index]);
+            sq1.doMoves(sq1.reverseScramble(algs[index]));
             oblState = sq1.getOBLState();
-            console.log(oblState);
 
-            var setupView = (<p id='setup'>{"Setup: " + reversedScramble}</p>);
+            var setupView = (<p>{"Setup: " + reversedScramble}</p>);
             var algView = (<p id='alg'>{"Algorithm: " + currentScramble}</p>);
 
-            var oblView = (<div id="obl-image">
+            var oblView = (
                 <div>
                     <div>
                         <svg width="100" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110" > <defs>
@@ -162,7 +160,7 @@ function getOBLAlgs(uLayer, dLayer) {
                     </div>
                 </div>
 
-            </div>);
+            );
             ReactDOM.render(oblView, document.getElementById('obl-image'));
 
             ReactDOM.render(setupView, document.getElementById('setup'));
@@ -171,13 +169,14 @@ function getOBLAlgs(uLayer, dLayer) {
 
         });
 }
+
+
 class OBL extends Component {
 
     update() {
 
     }
 
-    defaultProps = { reversedScramble: "", currentScramble: "", oblState: ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"] }
 
     constructor() {
         getOBLAlgs('all', 'all');
@@ -193,8 +192,8 @@ class OBL extends Component {
     render() {
         return (
             <div className='centered'>
-                <p id='setup'>{"Setup: " + reversedScramble}</p>
-                <p id='alg'>{"Algorithm: " + currentScramble}</p>
+                <div id='setup'><p>{"Setup: " + reversedScramble}</p></div>
+                <div id='alg'><p>{"Algorithm: " + currentScramble}</p></div>
                 <div id="obl-image">
 
                     <div>
@@ -332,5 +331,8 @@ class OBL extends Component {
 
     }
 }
+
+OBL.defaultProps = { reversedScramble: "", currentScramble: "", oblState: ["#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"] }
+
 
 export default OBL;

@@ -14,8 +14,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import OBL from '../OBL';
-import PBL from '../PBL.jsx';
 
 const drawerWidth = 240;
 
