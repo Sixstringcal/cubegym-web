@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Sq1 from './Models/Sq1';
-import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -21,7 +20,6 @@ var algSliceCount;
 
 
 function getOBLAlgs() {
-    console.log(currentSliceCount);
     if (hasRetrieved && algSliceCount === currentSliceCount) {
         var index = Math.floor(Math.random() * algs.length)
         sq1 = new Sq1();
@@ -336,7 +334,8 @@ function getOBLAlgs() {
     }
 }
 
-
+var timing = false;
+var startTime;
 function useKey(key) {
     const [pressed, setPressed] = useState(false);
 
@@ -345,11 +344,36 @@ function useKey(key) {
     const onDown = event => {
         if (match(event)) {
             setPressed(true);
+            if (!timerStarted) {
+                const timerStarting = (
+                    <p>starting</p>
+                );
+                ReactDOM.render(timerStarting, document.getElementById('timer'));
+                timerStarted = true;
+                timing = false;
+            }
+            else if (timing) {
+                //TODO: get time
+                var result = ((performance.now() - startTime) / 1000).toFixed(3);
+                const timerStopping = (
+                    <p>{result}</p>
+                );
+                ReactDOM.render(timerStopping, document.getElementById('timer'));
+                timerStarted = false;
+            }
         }
     }
     const onUp = event => {
         if (match(event)) {
             setPressed(false);
+            if (timerStarted) {
+                startTime = performance.now();
+                const timerTime = (
+                    <p>timing...</p>
+                );
+                timing = true;
+                ReactDOM.render(timerTime, document.getElementById('timer'));
+            }
         }
     }
 
@@ -364,7 +388,7 @@ function useKey(key) {
 
     return pressed;
 }
-
+var timerStarted = false;
 
 function OBL() {
 
@@ -380,7 +404,7 @@ function OBL() {
                 <FormControl >
                     <InputLabel htmlFor="uncontrolled-native">Slice Count</InputLabel>
                     <NativeSelect
-                        onChange={(value) => { currentSliceCount = value.target.value; console.log(currentSliceCount) }}
+                        onChange={(value) => { currentSliceCount = value.target.value; }}
                         defaultValue={currentSliceCount}
                         inputProps={{
                             name: "name",
@@ -541,9 +565,10 @@ function OBL() {
                 <div id='alg'><p>{" " + currentScramble}</p></div>
 
 
-                {spacebar && (
-                    <p> </p>
-                )}
+                <div id='timer'>
+                    <p> Press spacebar to begin timing. </p>
+                </div>
+
             </div>
 
         </div>
