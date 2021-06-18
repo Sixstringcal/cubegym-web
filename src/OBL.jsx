@@ -169,7 +169,7 @@ function getOBLAlgs() {
         ReactDOM.render(setupView, document.getElementById('setup'));
         ReactDOM.render(algView, document.getElementById('alg'));
     } else {
-        fetch("https://api.cubegym.net/getOBL", {
+        fetch("http://api.cubegym.net/getOBL", {
             //fetch("http://localhost:626/getOBL", {
 
             method: "POST",
