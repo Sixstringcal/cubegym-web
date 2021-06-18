@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Sq1 from './Models/Sq1';
-import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -21,7 +20,6 @@ var algSliceCount;
 
 
 function getOBLAlgs() {
-    console.log(currentSliceCount);
     if (hasRetrieved && algSliceCount === currentSliceCount) {
         var index = Math.floor(Math.random() * algs.length)
         sq1 = new Sq1();
@@ -370,7 +368,6 @@ function useKey(key) {
             setPressed(false);
             if (timerStarted) {
                 startTime = performance.now();
-                console.log(startTime);
                 const timerTime = (
                     <p>timing...</p>
                 );
@@ -407,7 +404,7 @@ function OBL() {
                 <FormControl >
                     <InputLabel htmlFor="uncontrolled-native">Slice Count</InputLabel>
                     <NativeSelect
-                        onChange={(value) => { currentSliceCount = value.target.value; console.log(currentSliceCount) }}
+                        onChange={(value) => { currentSliceCount = value.target.value; }}
                         defaultValue={currentSliceCount}
                         inputProps={{
                             name: "name",
@@ -569,7 +566,7 @@ function OBL() {
 
 
                 <div id='timer'>
-                    <p> 0.00 </p>
+                    <p> Press spacebar to begin timing. </p>
                 </div>
 
             </div>
