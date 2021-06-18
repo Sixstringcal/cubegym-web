@@ -336,7 +336,8 @@ function getOBLAlgs() {
     }
 }
 
-
+var timing = false;
+var startTime;
 function useKey(key) {
     const [pressed, setPressed] = useState(false);
 
@@ -345,11 +346,37 @@ function useKey(key) {
     const onDown = event => {
         if (match(event)) {
             setPressed(true);
+            if (!timerStarted) {
+                const timerStarting = (
+                    <p>starting</p>
+                );
+                ReactDOM.render(timerStarting, document.getElementById('timer'));
+                timerStarted = true;
+                timing = false;
+            }
+            else if (timing) {
+                //TODO: get time
+                var result = ((performance.now() - startTime) / 1000).toFixed(3);
+                const timerStopping = (
+                    <p>{result}</p>
+                );
+                ReactDOM.render(timerStopping, document.getElementById('timer'));
+                timerStarted = false;
+            }
         }
     }
     const onUp = event => {
         if (match(event)) {
             setPressed(false);
+            if (timerStarted) {
+                startTime = performance.now();
+                console.log(startTime);
+                const timerTime = (
+                    <p>timing...</p>
+                );
+                timing = true;
+                ReactDOM.render(timerTime, document.getElementById('timer'));
+            }
         }
     }
 
@@ -364,7 +391,7 @@ function useKey(key) {
 
     return pressed;
 }
-
+var timerStarted = false;
 
 function OBL() {
 
@@ -541,9 +568,10 @@ function OBL() {
                 <div id='alg'><p>{" " + currentScramble}</p></div>
 
 
-                {spacebar && (
-                    <p> </p>
-                )}
+                <div id='timer'>
+                    <p> 0.00 </p>
+                </div>
+
             </div>
 
         </div>
