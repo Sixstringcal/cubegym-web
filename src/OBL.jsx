@@ -169,7 +169,7 @@ function getOBLAlgs() {
         ReactDOM.render(setupView, document.getElementById('setup'));
         ReactDOM.render(algView, document.getElementById('alg'));
     } else {
-        fetch("http://api.cubegym.net/getOBL", {
+        fetch("https://api.cubegym.net/getOBL", {
             //fetch("http://localhost:626/getOBL", {
 
             method: "POST",
@@ -379,28 +379,7 @@ class OBL extends Component {
                         </NativeSelect>
                     </FormControl>
 
-                    <FormControl >
-                        <InputLabel htmlFor="uncontrolled-native">U Layer Case</InputLabel>
-                        <NativeSelect
-                            onChange={(value) => { currentSliceCount = value.target.value; console.log(currentSliceCount) }}
-                            defaultValue={currentSliceCount}
-                            inputProps={{
-                                name: "name",
-                                id: "uncontrolled-native"
-                            }}
-                        >
-                            <option value={0}>
-                                All
-                            </option>
-                            <option value={1}>One slice</option>
-                            <option value={2}>Two slices</option>
-                            <option value={3}>Three slices</option>
-                            <option value={4}>Four slices</option>
-                            <option value={5}>Five slices</option>
-                            <option value={6}>Six slices</option>
-
-                        </NativeSelect>
-                    </FormControl>
+                    
                     <Button variant="contained" color="primary" onClick={getOBLAlgs}>
                         Next
                     </Button>
