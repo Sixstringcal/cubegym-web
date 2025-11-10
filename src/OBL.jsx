@@ -170,7 +170,6 @@ function getOBLAlgs() {
     } else {
         fetch("https://api.cubegym.net/getOBL", {
             //fetch("http://localhost:626/getOBL", {
-
             method: "POST",
             body: JSON.stringify({
                 sliceCount: currentSliceCount
